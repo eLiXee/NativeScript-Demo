@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\rpsconf\binding-generator\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="cd7dd3d8b3faa7a457003b040d45b12c7e268dc6">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\rpsconf-binding-generator-unspecified_88fdcc46c331a5931c16f9d43d3ad13e12ce3f33.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\com.android.support-support-vector-drawable-23.4.0_93b4749b46097afaee127d0c751b1b0e1bb7d4f7.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\internal_impl-23.4.0_22e308a84f0f497b78553cd065821fd4ea5082b1.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\support-annotations-23.4.0_d95ddfd6fc8fa2ded914a706d5318f1e45232fd6.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\rpsconf\runtime\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="f8c8ebc987f6538a65f5cfd308d5984746999d79">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\rpsconf-runtime-unspecified_e39a16588de6bc518a445de1d187b4bd0ccbce91.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\com.android.support-animated-vector-drawable-23.4.0_7a3ec53a85aae9dd81d7df41d82a46366b96f63c.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\com.android.support-support-v4-23.4.0_65fe9e7342c656af7bd699a3afdf52b5f9421086.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\com.android.support-appcompat-v7-23.4.0_77b74def5061bacb7cd3e5b1992783cb1620b38c.jar" />
+    </item>
+    <item
+        jar="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\exploded-aar\widgets-release\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="f2e5203427159d06a7104c1a113eee1c22e0ceb9">
+        <dex dex="C:\Users\eXiLe\rps-conf\platforms\android\build\intermediates\pre-dexed\F0\debug\intermediates-exploded-aar-widgets-release_527e4a5369db3d83c09f1a80eab1f6f5f3875c4d.jar" />
+    </item>
+
+</items>

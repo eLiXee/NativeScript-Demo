@@ -1,0 +1,56 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  navigatingTo="pageNavigatingTo" actionBarHidden="true" backgroundSpanUnderStatusBar="true">
+
+  <GridLayout rows="auto, *" swipe="backSwipe" class="page-content">
+    <!-- HEADER -->
+    <GridLayout columns="auto, *" rows="auto, auto" cssClass="page-header">
+
+      <GridLayout row="1" visibility="{{ isBreak ? 'collapsed' : 'visible' }}"
+                  tap="toggleFavorite" columns="auto"
+                  cssClass="favourite-wrap" horizontalAlignment="left">
+        <Image id="imgFav" src="{{ favorite ? 'res://ic_add_to_fav_1' : 'res://ic_add_to_fav' }}" stretch="none" cssClass="icon-image" />
+      </GridLayout>
+
+      <StackLayout margin="16 16 16 0" row="1" col="1">
+        <Label text="{{ title }}" textWrap="true" cssClass="session-page-title" />
+        <Label text="{{ range + ', ' + room }}" textWrap="true" cssClass="session-page-subtitle" />
+      </StackLayout>
+
+    </GridLayout>
+
+    <!-- Content -->
+    <ScrollView row="1" id="scroll">
+      <GridLayout row="1" rows="auto, auto, auto, auto, *" columns="56, *" cssClass="content" >
+        <!-- Description -->
+        <Label cssClass="description" textWrap="true" col="1" id="txtDescription" text="{{ descriptionShort }}" />
+
+        <!-- Button -->
+        <Button text="MORE" tap="toggleDescription" cssClass="more-button" row="1" col="1"/>
+
+        <!-- Line -->
+        <StackLayout cssClass="horizontal-line" row="2" col="1" margin="0 0 0 0"/>
+
+        <!-- Speakers -->
+        <Label text="SPEAKERS" cssClass="section-header" row="3" col="1" />
+
+        <ListView id="sepakers-list" items="{{ speakers }}" row="4" colSpan="2" height="{{ speakers.length * 72 + 46 }}"
+                  selectedBackgroundColor="#fac950" separatorColor="#FFFFFF" >
+          <ListView.itemTemplate>
+            <GridLayout columns="56, *" cssClass="speakers-row" swipe="backSwipe">
+              <Image src="{{ picture }}" cssClass="speaker-image" stretch="aspectFit" rowSpan="2"/>
+
+              <StackLayout col="1" >
+                <StackLayout orientation="horizontal">
+                  <Label text="{{ name }}" cssClass="info bold" />
+                  <Label text="{{ twitterName ? ' (' + twitterName + ')' : '' }}" cssClass="info" style="color: #A17201;" />
+                </StackLayout>
+
+                <Label text="{{ title }}" cssClass="info" textWrap="true" style="font-style: italic;" />
+              </StackLayout>
+            </GridLayout>
+          </ListView.itemTemplate>
+        </ListView>
+      </GridLayout>
+    </ScrollView>
+  </GridLayout>
+</Page>
