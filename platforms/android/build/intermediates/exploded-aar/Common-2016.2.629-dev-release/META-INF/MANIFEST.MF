@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_45 (Oracle Corporation)
+
+Name: res/values/values.xml
+SHA1-Digest: 3J9pPS/OBE+u22mnmSLSVawOc/k=
+
+Name: res/layout/trial_message.xml
+SHA1-Digest: u3k1LchYoXKe1O04n6m06hRFPaQ=
+
+Name: AndroidManifest.xml
+SHA1-Digest: 141J/ky3tnnmi6hn828wOXw0GPM=
+
+Name: aapt/AndroidManifest.xml
+SHA1-Digest: 141J/ky3tnnmi6hn828wOXw0GPM=
+
+Name: classes.jar
+SHA1-Digest: IRJj5L90mmJZa5modSGVAHHbLFk=
+
+Name: R.txt
+SHA1-Digest: LcBT6riL6fY4cN1ycX0Uu8c62fw=
+

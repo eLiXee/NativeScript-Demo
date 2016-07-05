@@ -1,9 +1,25 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-  navigatingTo="pageNavigatingTo" actionBarHidden="true" backgroundSpanUnderStatusBar="true">
+  navigatingTo="pageNavigatingTo" actionBarHidden="true">
 
-  <GridLayout rows="auto, *" swipe="backSwipe" class="page-content">
+  <GridLayout rows="auto, *" swipe="backSwipe">
     <!-- HEADER -->
     <GridLayout columns="auto, *" rows="auto, auto" cssClass="page-header">
+      <GridLayout cssClass="action-bar" colSpan="2">
+        <StackLayout tap="backTap" orientation="horizontal" cssClass="action-wrap" horizontalAlignment="left">
+          <Image stretch="none" cssClass="icon-image" src="res://ic_arrow_back"/>
+          <Label text="Back" cssClass="back-text" />
+        </StackLayout>
+
+        <StackLayout orientation="horizontal" horizontalAlignment="right">
+          <GridLayout cssClass="action-wrap" tap="showMapTap" columns="auto" horizontalAlignment="right"  visibility="{{ room ? 'visible' : 'collapsed' }}">
+            <Image stretch="none" cssClass="icon-image" src="res://ic_map"/>
+          </GridLayout>
+
+          <GridLayout cssClass="action-wrap" tap="shareTap" columns="auto" horizontalAlignment="right">
+            <Image stretch="none" cssClass="icon-image" src="res://ic_share"/>
+          </GridLayout>
+        </StackLayout>
+      </GridLayout>
 
       <GridLayout row="1" visibility="{{ isBreak ? 'collapsed' : 'visible' }}"
                   tap="toggleFavorite" columns="auto"
@@ -25,7 +41,7 @@
         <Label cssClass="description" textWrap="true" col="1" id="txtDescription" text="{{ descriptionShort }}" />
 
         <!-- Button -->
-        <Button text="MORE" tap="toggleDescription" cssClass="more-button" row="1" col="1"/>
+        <Button text="MORE" tap="toogleDescription" cssClass="more-button" row="1" col="1"/>
 
         <!-- Line -->
         <StackLayout cssClass="horizontal-line" row="2" col="1" margin="0 0 0 0"/>

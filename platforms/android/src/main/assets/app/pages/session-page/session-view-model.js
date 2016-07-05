@@ -11,6 +11,9 @@ var SessionViewModel = (function (_super) {
             this._endDt = this.fixDate(new Date(source.end));
         }
     }
+    SessionViewModel.prototype.fixDate = function (date) {
+        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+    };
     Object.defineProperty(SessionViewModel.prototype, "id", {
         get: function () {
             return this._session.id;
@@ -73,6 +76,13 @@ var SessionViewModel = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(SessionViewModel.prototype, "speakers", {
+        get: function () {
+            return this._session.speakers;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(SessionViewModel.prototype, "range", {
         get: function () {
             var startMinutes = this.startDt.getMinutes() + '';
@@ -87,16 +97,22 @@ var SessionViewModel = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(SessionViewModel.prototype, "speakers", {
+    Object.defineProperty(SessionViewModel.prototype, "isBreak", {
         get: function () {
-            return this._session.speakers;
+            return this._session.isBreak;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(SessionViewModel.prototype, "isBreak", {
+    Object.defineProperty(SessionViewModel.prototype, "favorite", {
         get: function () {
-            return this._session.isBreak;
+            return this._favorite;
+        },
+        set: function (value) {
+            if (this._favorite !== value && !this._session.isBreak) {
+                this._favorite = value;
+                this.notify({ object: this, eventName: observable_1.Observable.propertyChangeEvent, propertyName: 'favorite', value: this._favorite });
+            }
         },
         enumerable: true,
         configurable: true
@@ -120,26 +136,6 @@ var SessionViewModel = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(SessionViewModel.prototype, "calendarEventId", {
-        get: function () {
-            return this._session.calendarEventId;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SessionViewModel.prototype, "favorite", {
-        get: function () {
-            return this._favorite;
-        },
-        set: function (value) {
-            if (this._favorite !== value && !this._session.isBreak) {
-                this._favorite = value;
-                this.notify({ object: this, eventName: observable_1.Observable.propertyChangeEvent, propertyName: 'favorite', value: this._favorite });
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
     SessionViewModel.prototype.toggleFavorite = function () {
         this.favorite = !this.favorite;
         if (this.favorite) {
@@ -149,9 +145,19 @@ var SessionViewModel = (function (_super) {
             favoritesServiceModule.removeFromFavourites(this);
         }
     };
-    SessionViewModel.prototype.fixDate = function (date) {
-        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
-    };
+    Object.defineProperty(SessionViewModel.prototype, "calendarEventId", {
+        get: function () {
+            return this._calendarEventId;
+        },
+        set: function (value) {
+            if (this._calendarEventId !== value) {
+                this._calendarEventId = value;
+                this.notify({ object: this, eventName: observable_1.Observable.propertyChangeEvent, propertyName: 'calendarEventId', value: this._calendarEventId });
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     return SessionViewModel;
 }(observable_1.Observable));
 exports.SessionViewModel = SessionViewModel;

@@ -1,45 +1,7 @@
 {
-  "_args": [
-    [
-      "faker@^3.1.0",
-      "C:\\Users\\eXiLe\\rps-conf"
-    ]
-  ],
-  "_from": "faker@>=3.1.0 <4.0.0",
-  "_id": "faker@3.1.0",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/faker",
-  "_nodeVersion": "0.12.7",
-  "_npmOperationalInternal": {
-    "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/faker-3.1.0.tgz_1458523265423_0.6508459870237857"
-  },
-  "_npmUser": {
-    "email": "marak.squires@gmail.com",
-    "name": "marak"
-  },
-  "_npmVersion": "2.11.3",
-  "_phantomChildren": {},
-  "_requested": {
-    "name": "faker",
-    "raw": "faker@^3.1.0",
-    "rawSpec": "^3.1.0",
-    "scope": null,
-    "spec": ">=3.1.0 <4.0.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/faker/-/faker-3.1.0.tgz",
-  "_shasum": "0f908faf4e6ec02524e54a57e432c5c013e08c9f",
-  "_shrinkwrap": null,
-  "_spec": "faker@^3.1.0",
-  "_where": "C:\\Users\\eXiLe\\rps-conf",
-  "bugs": {
-    "url": "https://github.com/Marak/Faker.js/issues"
-  },
+  "name": "faker",
+  "description": "Generate massive amounts of fake contextual data",
+  "version": "3.1.0",
   "contributors": [
     {
       "name": "Marak Squires",
@@ -50,8 +12,16 @@
       "email": "matt@novafabrica.com"
     }
   ],
-  "dependencies": {},
-  "description": "Generate massive amounts of fake contextual data",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Marak/Faker.js.git"
+  },
+  "scripts": {
+    "lint": "jshint ./lib --config ./.jshintrc",
+    "test": "mocha test/*.*.js",
+    "build": "cd build && ../node_modules/.bin/gulp && cd ../",
+    "doc": "jsdoc -c conf.json -t ./node_modules/ink-docstrap/template -R README.md lib"
+  },
   "devDependencies": {
     "browserify": "5.11.1",
     "gulp": "3.8.8",
@@ -71,33 +41,38 @@
     "through2": "2.0.0",
     "vinyl-transform": "0.0.1"
   },
-  "directories": {},
-  "dist": {
-    "shasum": "0f908faf4e6ec02524e54a57e432c5c013e08c9f",
-    "tarball": "https://registry.npmjs.org/faker/-/faker-3.1.0.tgz"
-  },
-  "gitHead": "649843ade73b730911506b8ecc6bf64bad10238c",
-  "homepage": "https://github.com/Marak/Faker.js#readme",
   "license": "MIT",
   "main": "index.js",
+  "dependencies": {},
+  "gitHead": "649843ade73b730911506b8ecc6bf64bad10238c",
+  "bugs": {
+    "url": "https://github.com/Marak/Faker.js/issues"
+  },
+  "homepage": "https://github.com/Marak/Faker.js#readme",
+  "_id": "faker@3.1.0",
+  "_shasum": "0f908faf4e6ec02524e54a57e432c5c013e08c9f",
+  "_from": "faker@3.1.0",
+  "_npmVersion": "2.11.3",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "marak",
+    "email": "marak.squires@gmail.com"
+  },
   "maintainers": [
     {
       "name": "marak",
       "email": "marak.squires@gmail.com"
     }
   ],
-  "name": "faker",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Marak/Faker.js.git"
+  "dist": {
+    "shasum": "0f908faf4e6ec02524e54a57e432c5c013e08c9f",
+    "tarball": "https://registry.npmjs.org/faker/-/faker-3.1.0.tgz"
   },
-  "scripts": {
-    "build": "cd build && ../node_modules/.bin/gulp && cd ../",
-    "doc": "jsdoc -c conf.json -t ./node_modules/ink-docstrap/template -R README.md lib",
-    "lint": "jshint ./lib --config ./.jshintrc",
-    "test": "mocha test/*.*.js"
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/faker-3.1.0.tgz_1458523265423_0.6508459870237857"
   },
-  "version": "3.1.0"
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/faker/-/faker-3.1.0.tgz",
+  "readme": "ERROR: No README data found!"
 }

@@ -1,0 +1,75 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_45 (Oracle Corporation)
+
+Name: res/values/values.xml
+SHA1-Digest: /1xBW1o146nlwyVLXwgmlSQ0A+8=
+
+Name: res/layout/navigation_drawer_content.xml
+SHA1-Digest: E6wTWOTFqEmB+/cAA0SV2adFbsc=
+
+Name: classes.jar
+SHA1-Digest: RhcltNrmlnvA5sJVf34FqyVhng0=
+
+Name: jni/armeabi-v7a/librsjni.so
+SHA1-Digest: c8M5IVwvkRhr4Bs05uQbkbiXEgY=
+
+Name: res/drawable-xxxhdpi-v4/hmb.png
+SHA1-Digest: 4/+Oc4hE8QHQ7iFXzCw4iSQtffA=
+
+Name: jni/mips/librsjni.so
+SHA1-Digest: 0K84ZcC2ezkl9j88MQvlmTGGr4k=
+
+Name: jni/armeabi-v7a/libRSSupport.so
+SHA1-Digest: 3Afnp4tcm7sRlZT6tR/OFycDYd4=
+
+Name: res/layout/tooltip_container.xml
+SHA1-Digest: O4nKSe4gWwLK4oYpxYu006UsiaY=
+
+Name: res/drawable-hdpi-v4/hmb.png
+SHA1-Digest: 13f+ULzpZXbNaxZu4MOjYjNQjqc=
+
+Name: res/anim/drawer_slide_in_top.xml
+SHA1-Digest: J5zFqW3vts2qtwst5K61g/6R9Ls=
+
+Name: res/drawable-xhdpi-v4/hmb.png
+SHA1-Digest: 22PzNVBWQRdTYNjPa3Zzh6Zk3ZQ=
+
+Name: aapt/AndroidManifest.xml
+SHA1-Digest: n7Oet3MTsoURTbEuxnLNDB7kJoM=
+
+Name: AndroidManifest.xml
+SHA1-Digest: n7Oet3MTsoURTbEuxnLNDB7kJoM=
+
+Name: res/drawable/hamburger.xml
+SHA1-Digest: tJgckb6fGgJiQ21kU/cpsfG8rIQ=
+
+Name: jni/x86/librsjni.so
+SHA1-Digest: brpy+H1HKyh03nZe5N9RRmfXJ8o=
+
+Name: res/layout/default_tooltip_content.xml
+SHA1-Digest: 8I85EmxoloOyWlZBtw7XiSIt4Rw=
+
+Name: res/drawable-mdpi-v4/hmb.png
+SHA1-Digest: SnWjMwWDB+vJnFVxIeRbMNo5Kqo=
+
+Name: jni/mips/libRSSupport.so
+SHA1-Digest: p7goTcslg13hXNCkID90NPczrOI=
+
+Name: R.txt
+SHA1-Digest: Wqc/xjQmvc1fsQQMncTuXEgByxw=
+
+Name: res/anim/drawer_slide_out_top.xml
+SHA1-Digest: J5zFqW3vts2qtwst5K61g/6R9Ls=
+
+Name: res/drawable-xxhdpi-v4/hmb.png
+SHA1-Digest: /O+EpYh4RUNRS1Pdk+/kGB6gETI=
+
+Name: res/layout/navigation_item_view.xml
+SHA1-Digest: 7ZvhsAdyaxi4mWztXLv3qhmK3qM=
+
+Name: res/layout/drawer_blur_fade_layer.xml
+SHA1-Digest: EeGPA/yj6wE8717jEU8Fl+ArDFQ=
+
+Name: jni/x86/libRSSupport.so
+SHA1-Digest: PFH7CBLHLF5gyf3EAHSHiMKVqlo=
+

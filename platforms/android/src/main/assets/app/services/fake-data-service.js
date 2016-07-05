@@ -21,7 +21,7 @@ function generateSpeakers() {
             title: faker.name.jobTitle(),
             company: faker.company.companyName(),
             picture: picture,
-            twitterName: '@' + faker.internet.userName(firstName, lastName)
+            twitterName: '@' + faker.internet.userName(firstName, lastName),
         };
         speakerList.push(s);
     }
@@ -51,7 +51,6 @@ function generateSessions(speakers, roomInfos) {
         for (var _a = 0, timeSlots_1 = timeSlots; _a < timeSlots_1.length; _a++) {
             var confTimeSlot = timeSlots_1[_a];
             if (confTimeSlot.isBreak) {
-                //break session
                 var s = {
                     id: (idSeed++).toString(),
                     title: toTitleCase(confTimeSlot.title),
@@ -68,7 +67,6 @@ function generateSessions(speakers, roomInfos) {
                 sessionList.push(s);
             }
             else {
-                //speaker session
                 var subSpeakers = getRandomArrayElements(speakers, faker.random.number(3));
                 var roomInfo = roomInfos[faker.random.number(roomInfos.length - 1)];
                 var s = {
@@ -91,6 +89,17 @@ function generateSessions(speakers, roomInfos) {
     return sessionList;
 }
 exports.generateSessions = generateSessions;
+function getSpeakerAvatars(path) {
+    var avatarList = [];
+    var currentAppFolder = fileSystemModule.knownFolders.currentApp();
+    var menAvatarsFile = currentAppFolder.getFile(path);
+    var fileText = menAvatarsFile.readTextSync();
+    var lines = fileText.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+        avatarList.push('data:image/png;base64,' + lines[i]);
+    }
+    return avatarList;
+}
 function generateTimeSlots(confDay) {
     var timeSlotList = [];
     var startTimeList = getTimeRange(addMinutes(confDay.date, 240), addMinutes(confDay.date, 780), SESSION_LENGTH);
@@ -124,9 +133,6 @@ function getTimeRange(startTime, endTime, minutesBetween) {
 function addMinutes(date, minutes) {
     return new Date(date.getTime() + minutes * 60000);
 }
-function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-}
 function getRandomArrayElements(arr, count) {
     var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
     while (i-- > min) {
@@ -137,15 +143,7 @@ function getRandomArrayElements(arr, count) {
     }
     return shuffled.slice(min);
 }
-function getSpeakerAvatars(path) {
-    var avatarList = [];
-    var currentAppFolder = fileSystemModule.knownFolders.currentApp();
-    var file = currentAppFolder.getFile(path);
-    var fileText = file.readTextSync();
-    var lines = fileText.split('\n');
-    for (var i = 0; i < lines.length; i++) {
-        avatarList.push('data:image/png;base64,' + lines[i]);
-    }
-    return avatarList;
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 }
 //# sourceMappingURL=fake-data-service.js.map

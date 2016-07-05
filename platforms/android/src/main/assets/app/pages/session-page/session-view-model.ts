@@ -3,27 +3,34 @@ import { Session, Speaker, RoomInfo } from '../../shared/interfaces';
 import * as favoritesServiceModule from '../../services/favorites-service';
 
 export class SessionViewModel extends Observable implements Session {
-    private _session: Session;
-    private _favorite: boolean;
-    private _startDt: Date;
-    private _endDt: Date;
-    
     constructor(source?: Session) {
         super();
-        
+
         if (source) {
             this._session = source;
             this._startDt = this.fixDate(new Date(source.start));
             this._endDt = this.fixDate(new Date(source.end));
         }
     }
-    
+
+    private fixDate(date: Date): Date {
+        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+    }
+
+    private _session: Session;
+    private _favorite: boolean;
+    private _startDt: Date;
+    private _endDt: Date;
+    private _calendarEventId: string;
+
     get id(): string {
         return this._session.id;
     }
+
     get title(): string {
         return this._session.title;
     }
+
     get room(): string {
         if (this._session.room) {
             return this._session.room;
@@ -31,11 +38,14 @@ export class SessionViewModel extends Observable implements Session {
         if (this._session.roomInfo) {
             return this._session.roomInfo.name;
         }
+
         return null;
     }
+
     get roomInfo(): RoomInfo {
         return this._session.roomInfo;
     }
+
     get start(): string {
         return this._session.start;
     }
@@ -51,7 +61,11 @@ export class SessionViewModel extends Observable implements Session {
     get endDt(): Date {
         return this._endDt;
     }
-    
+
+    get speakers(): Array<Speaker> {
+        return this._session.speakers;
+    }
+
     get range(): string {
         var startMinutes = this.startDt.getMinutes() + '';
         var endMinutes = this.endDt.getMinutes() + '';
@@ -64,27 +78,11 @@ export class SessionViewModel extends Observable implements Session {
         return (startHours.length === 1 ? '0' + startHours : startHours) + ':' + (startMinutes.length === 1 ? '0' + startMinutes : startMinutes) + startAM +
             ' - ' + (endHours.length === 1 ? '0' + endHours : endHours) + ':' + (endMinutes.length === 1 ? '0' + endMinutes : endMinutes) + endAM;
     }
-    
-    get speakers(): Array<Speaker> {
-        return this._session.speakers;
-    }
+
     get isBreak(): boolean {
         return this._session.isBreak;
     }
-    get description(): string {
-        return this._session.description;
-    }
-    get descriptionShort(): string {
-        if (this.description.length > 160) {
-            return this.description.substr(0, 160) + '...';
-        }
-        else {
-            return this.description;
-        } 
-    }
-    get calendarEventId(): string {
-        return this._session.calendarEventId;
-    }
+
     get favorite(): boolean {
         return this._favorite;
     }
@@ -94,7 +92,20 @@ export class SessionViewModel extends Observable implements Session {
             this.notify({ object: this, eventName: Observable.propertyChangeEvent, propertyName: 'favorite', value: this._favorite });
         }
     }
-    
+
+    get description(): string {
+        return this._session.description;
+    }
+
+    get descriptionShort(): string {
+        if (this.description.length > 160) {
+            return this.description.substr(0, 160) + '...';
+        }
+        else {
+            return this.description;
+        }
+    }
+
     public toggleFavorite() {
         this.favorite = !this.favorite;
         if (this.favorite) {
@@ -104,8 +115,14 @@ export class SessionViewModel extends Observable implements Session {
             favoritesServiceModule.removeFromFavourites(this);
         }
     }
-    
-    private fixDate(date: Date): Date {
-        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+
+    get calendarEventId(): string {
+        return this._calendarEventId;
+    }
+    set calendarEventId(value: string) {
+        if (this._calendarEventId !== value) {
+            this._calendarEventId = value;
+            this.notify({ object: this, eventName: Observable.propertyChangeEvent, propertyName: 'calendarEventId', value: this._calendarEventId });
+        }
     }
 }

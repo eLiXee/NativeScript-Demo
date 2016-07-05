@@ -1,3 +1,6 @@
+import { Observable } from 'data/observable';
+import * as favoritesServiceModule from '../services/favorites-service';
+
 export interface ConferenceDay {
     date: Date;
     title: string;

@@ -1,4 +1,4 @@
-import { Session, Speaker, RoomInfo, ConferenceDay, ConfTimeSlot } from '../shared/interfaces';
+import { Session, RoomInfo, Speaker, ConferenceDay, ConfTimeSlot } from '../shared/interfaces';
 import { conferenceDays } from '../shared/static-data';
 import * as fileSystemModule from 'file-system';
 
@@ -8,7 +8,7 @@ let NUM_SPEAKERS = 40;
 let NUM_ROOM_INFOS = 10;
 let SESSION_LENGTH = 60;
 
-export function generateSpeakers() : Array<Speaker> {
+export function generateSpeakers(): Array<Speaker> {
     var speakerList: Array<Speaker> = [];
     var avatarsMen = getSpeakerAvatars('images/speakers/base64/men.txt');
     var avatarsWomen = getSpeakerAvatars('images/speakers/base64/women.txt');
@@ -25,7 +25,7 @@ export function generateSpeakers() : Array<Speaker> {
             title: faker.name.jobTitle(),
             company: faker.company.companyName(),
             picture: picture,
-            twitterName: '@' + faker.internet.userName(firstName, lastName)
+            twitterName: '@' + faker.internet.userName(firstName, lastName),
         };
         
         speakerList.push(s);
@@ -34,7 +34,7 @@ export function generateSpeakers() : Array<Speaker> {
     return speakerList;
 }
 
-export function generateRoomInfos() : Array<RoomInfo> {
+export function generateRoomInfos(): Array<RoomInfo> {
     var roomInfoList: Array<RoomInfo> = [];
     for (var i = 0; i <= NUM_ROOM_INFOS; i++) {
         let r: RoomInfo = {
@@ -55,7 +55,6 @@ export function generateSessions(speakers: Array<Speaker>, roomInfos: Array<Room
         var timeSlots = generateTimeSlots(confDay);
         for (var confTimeSlot of timeSlots) {
             if (confTimeSlot.isBreak) {
-                //break session
                 let s: Session = {
                     id: (idSeed++).toString(),
                     title: toTitleCase(confTimeSlot.title),
@@ -72,7 +71,6 @@ export function generateSessions(speakers: Array<Speaker>, roomInfos: Array<Room
                 sessionList.push(s);
             }
             else {
-                //speaker session
                 var subSpeakers = getRandomArrayElements(speakers, faker.random.number(3));
                 var roomInfo = roomInfos[faker.random.number(roomInfos.length-1)];
                 
@@ -94,6 +92,19 @@ export function generateSessions(speakers: Array<Speaker>, roomInfos: Array<Room
         }
     }
     return sessionList;
+}
+
+function getSpeakerAvatars(path) {
+    var avatarList: Array<string> = [];
+    var currentAppFolder = fileSystemModule.knownFolders.currentApp();
+    var menAvatarsFile = currentAppFolder.getFile(path);
+    var fileText = menAvatarsFile.readTextSync();
+    
+    var lines = fileText.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+        avatarList.push('data:image/png;base64,' + lines[i]);
+    }
+    return avatarList;
 }
 
 function generateTimeSlots(confDay: ConferenceDay) : Array<ConfTimeSlot> {
@@ -131,10 +142,6 @@ function addMinutes(date: Date, minutes: number) {
     return new Date(date.getTime() + minutes*60000);
 }
 
-function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-}
-
 function getRandomArrayElements(arr, count) {
     var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
     while (i-- > min) {
@@ -146,15 +153,6 @@ function getRandomArrayElements(arr, count) {
     return shuffled.slice(min);
 }
 
-function getSpeakerAvatars(path) {
-    var avatarList: Array<string> = [];
-    var currentAppFolder = fileSystemModule.knownFolders.currentApp();
-    var file = currentAppFolder.getFile(path);
-    var fileText = file.readTextSync();
-    
-    var lines = fileText.split('\n');
-    for (var i = 0; i < lines.length; i++) {
-        avatarList.push('data:image/png;base64,' + lines[i]);
-    }
-    return avatarList;
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }

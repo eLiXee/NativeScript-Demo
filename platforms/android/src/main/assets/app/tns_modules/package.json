@@ -1,11 +1,11 @@
 {
   "_args": [
     [
-      "tns-core-modules",
+      "tns-core-modules@2.1.0",
       "C:\\Users\\eXiLe\\rps-conf"
     ]
   ],
-  "_from": "tns-core-modules@latest",
+  "_from": "tns-core-modules@2.1.0",
   "_id": "tns-core-modules@2.1.0",
   "_inCache": true,
   "_installable": true,
@@ -23,11 +23,11 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "tns-core-modules",
-    "raw": "tns-core-modules",
-    "rawSpec": "",
+    "raw": "tns-core-modules@2.1.0",
+    "rawSpec": "2.1.0",
     "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "spec": "2.1.0",
+    "type": "version"
   },
   "_requiredBy": [
     "/"
@@ -35,7 +35,7 @@
   "_resolved": "https://registry.npmjs.org/tns-core-modules/-/tns-core-modules-2.1.0.tgz",
   "_shasum": "b28dcbf4926dc8d342e47fac8f699824a475b64a",
   "_shrinkwrap": null,
-  "_spec": "tns-core-modules",
+  "_spec": "tns-core-modules@2.1.0",
   "_where": "C:\\Users\\eXiLe\\rps-conf",
   "dependencies": {
     "tns-core-modules-widgets": "2.1.4"
